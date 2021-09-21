@@ -16,8 +16,8 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
     body {
-        /* background: var(--background); */
         -webkit-font-smoothing: antialiased;
+        background: gray;
     }
 
     body, input, textarea, button {
@@ -25,18 +25,21 @@ export const GlobalStyle = createGlobalStyle`
     }
     h1, h2, h3, h4, h5, h6, strong {
         font-weight: 700;
+        color: white;
+        font: "Roboto";
     }
     button {
         cursor: pointer;
     }
 
+    [disabled] {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
     a {
     color: inherit;
     text-decoration: none;
 }
 
-    [disabled] {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
+   
 `;

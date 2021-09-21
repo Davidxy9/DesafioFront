@@ -1,4 +1,3 @@
-import { GlobalStyle } from '../styles/global';
 import Head from 'next/head';
 export default function Home() {
   return (
@@ -6,7 +5,6 @@ export default function Home() {
     <Head>
       <title>Desafio</title>
     </Head>
-    <GlobalStyle />
      <h1>Hello World</h1>
      </>
 
