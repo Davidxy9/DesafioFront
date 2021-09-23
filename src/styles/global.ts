@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     body {
         -webkit-font-smoothing: antialiased;
-        background: gray;
+        background: #F8F8FF;
     }
 
     body, input, textarea, button {

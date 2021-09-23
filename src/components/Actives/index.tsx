@@ -1,7 +1,6 @@
 import {Container} from './styles';
 import api from '../../services/api';
 import { useState, useEffect } from 'react';
-import { Content } from '../Header/styles';
 
 interface ActivesData {
     id: number;
@@ -45,9 +44,7 @@ export function Actives () {
     return (
         //ver todos os ativos
         <Container>
-            <Content>
 
-            </Content>
 
             {actives.map(active => (
                 <a key={active.id}>

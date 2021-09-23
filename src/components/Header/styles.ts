@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
     height: 5rem;
-    border-bottom: 1px solid #29292e;
+    border-bottom: 2px solid #29292e;
     background: #ffffff;
 `;
 
