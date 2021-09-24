@@ -9,19 +9,38 @@ interface UnitsData {
     name: string;
 }
 
+interface ActivesData {
+    metrics: {
+        totalCollectsUptime: number;
+    }
+}
+
 
 export function UnitsGraph() {
-    const [units, setUnits] = useState<UnitsData[]>([]);
+    const [units, setUnits] = useState<UnitsData>();
+    //state para usar os ativos em array nos graficos
+    const [actives, setActives] = useState<ActivesData[]>([])
 
     useEffect(() => {
         
          api.get(`https://my-json-server.typicode.com/tractian/fake-api/units/1`)
             .then(response => setUnits(response.data.name)) 
-            
-    
+        
+         api.get(`https://my-json-server.typicode.com/tractian/fake-api/assets`)
+            .then(response => {
+                const select1 = [];
+
+                response.data.map(option => (
+                    select1.push({
+                        value: option.metrics.totalCollectsUptime
+                    })
+
+                ))
+                setActives(select1)
+            })
     }, [])
  
-    console.log(units)
+    console.log(actives)
     const configUnitsGraph = {
         chart: {
             type: 'column'
