@@ -13,31 +13,37 @@ interface ActivesData {
     metrics: {
         totalCollectsUptime: number;
     }
+
 }
 
+interface IDados {
+    name: string;
+    data: number[]
+}
 
 export function UnitsGraph() {
     const [units, setUnits] = useState<UnitsData>();
     //state para usar os ativos em array nos graficos
-    const [actives, setActives] = useState<ActivesData[]>([])
+    const [actives, setActives] = useState<IDados[]>([])
 
     useEffect(() => {
         
-         api.get(`https://my-json-server.typicode.com/tractian/fake-api/units/1`)
-            .then(response => setUnits(response.data.name)) 
-        
-         api.get(`https://my-json-server.typicode.com/tractian/fake-api/assets`)
-            .then(response => {
-                const select1 = [];
+        async function Load() {
+            const Unidades = await api.get('https://my-json-server.typicode.com/tractian/fake-api/units/1')
 
-                response.data.map(option => (
-                    select1.push({
-                        value: option.metrics.totalCollectsUptime
-                    })
+            const dados = await api.get('https://my-json-server.typicode.com/tractian/fake-api/assets')
+            const list = Unidades.data;
+            const aux = [];
+            // console.log('List tem ', Unidades.data)
+            dados.data.map(option => (
+                aux.push(option.metrics.totalCollectsUptime)
+            ))
 
-                ))
-                setActives(select1)
-            })
+            setActives([{ name: list.name, data: aux }])
+            console.log('a lista esta com', aux)
+        }
+
+        Load()
     }, [])
  
     console.log(actives)
@@ -88,7 +94,8 @@ export function UnitsGraph() {
                 borderWidth: 0
             }
         },
-        series: [{
+            series: actives
+        /* series: [{
             name: units,
             data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
     
@@ -104,7 +111,7 @@ export function UnitsGraph() {
             name: 'Berlin',
             data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
     
-        }]
+        }] */
     }
     return (
         <HighchartsReact
