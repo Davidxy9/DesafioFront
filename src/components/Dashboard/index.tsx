@@ -9,7 +9,7 @@ interface CompanyData {
 interface UnitsData {
     id: number;
     name: string;
-
+    url:string;
 }
 
 export function Dashboard (){
@@ -23,17 +23,23 @@ export function Dashboard (){
         const response = await api.get(`https://my-json-server.typicode.com/tractian/fake-api/units`)
         const itens = response.data;
 
-        const obj1 = {url: "https://lcmtreinamento.com.br/wp-content/uploads/2019/11/fabrica.jpg"}
-        const obj2 = {url: "https://criticalhits.com.br/wp-content/uploads/2021/08/re-zero-season-2-screenshot-of-emilia.jpg"}
-let item1: UnitsData;
+        const obj = {
+            id: itens[0].id,
+            name: itens[0].name,
+            url: "https://lcmtreinamento.com.br/wp-content/uploads/2019/11/fabrica.jpg"
+        }
 
-item1 = itens[0]
-let item2 = itens[1];
+        const obj2 = {
+            id: itens[1].id,
+            name: itens[1].name,
+            url: "https://lh3.googleusercontent.com/proxy/oMpnDHm9RTiW8V-olEGmGcqRHg1SSPePIEb_Ase8sahmOzaOF-osrbSMd5gT6msUnrbIaUyLIWnbC8LOhO6kDWeAiqyWQBH2XtmDofA1lbIPhN8KvY-wYxvl0pUhOxxPlke2coWQo6o01wrw"
+        }
 
-            setUnits([{...obj1,item1}, {...obj2, item2}]);
+        setUnits([obj, obj2])
         }
 
         Load()
+
     },[])
 
 
@@ -50,13 +56,12 @@ let item2 = itens[1];
             
         </Container>
         <Title>Nossas unidades</Title>
-        <Content > se atualizar dps de fzr uma mudança ele fica assim po html bugado kkkkkk
-
+        <Content > 
         {units.map(unity =>
             
                 <div key={unity.id}>
                 {/* <img src="https://lh3.googleusercontent.com/proxy/oMpnDHm9RTiW8V-olEGmGcqRHg1SSPePIEb_Ase8sahmOzaOF-osrbSMd5gT6msUnrbIaUyLIWnbC8LOhO6kDWeAiqyWQBH2XtmDofA1lbIPhN8KvY-wYxvl0pUhOxxPlke2coWQo6o01wrw"alt="img-api" /> */}
-                <img src={unity.url} />
+                <img src={unity.url} alt="imageUnity"/>
                 <strong>{unity.name}</strong>
             </div>
             // <div>
