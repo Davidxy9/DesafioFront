@@ -41,15 +41,15 @@ export const Title = styled.h2`
 export const Content = styled.div`
     display: flex;
     flex-wrap: wrap;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 20px auto;
-    background: rgba(248,248,255, 0.25);
+    /* background: rgba(248,248,255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     border-radius: 10px;
     border: 1px solid rgba(248,248,255, 0.18);
-
+ */
 
     div {
         flex: 2 2 900px;
@@ -59,7 +59,7 @@ export const Content = styled.div`
         padding-right: 10px;
         padding-bottom: 20px;
         background: #1d1e20;
-        max-width: 300px;
+        max-width: 500px;
 
         
         img {

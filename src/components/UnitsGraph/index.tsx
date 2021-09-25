@@ -2,7 +2,6 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { useState, useEffect } from 'react';
 import api from '../../services/api';
-//import {configUnitsGraph} from '../../utils/configUnitsGraph';
 
 interface UnitsData {
     //id: number;
@@ -29,37 +28,63 @@ export function UnitsGraph() {
     const [units, setUnits] = useState<UnitsData>();
     //state para usar os ativos em array nos graficos
     const [actives, setActives] = useState<IDados[]>([])
+    const [activesTwo, setActivesTwo] = useState<IDados[]>([])
+
     const[activesName, setActivesName] = useState<ActivesNameData[]>([])
+    const[activesNameTwo, setActivesNameTwo] = useState<ActivesNameData[]>([])
+
 
     useEffect(() => {
 
         async function Load() {
             //Buscando unidade e seus collects
             const Unidades = await api.get('https://my-json-server.typicode.com/tractian/fake-api/units/1')
+            const Unidades2 = await api.get('https://my-json-server.typicode.com/tractian/fake-api/units/2')
 
             const assets = await api.get('https://my-json-server.typicode.com/tractian/fake-api/assets')
             const list = Unidades.data;
+            const list2 = Unidades2.data;
             const aux = [];
-            // console.log('List tem ', Unidades.data)
-            assets.data.map(option => (
+            const aux3 = [];
+
+            const filterAssets = assets.data.filter((option) => option.unitId === 1 )
+            const filterAssets2 = assets.data.filter((option) => option.unitId === 2 )
+
+            console.log('MAUUU',filterAssets2)
+        //UNIDADE 1:
+            filterAssets.map(option => (
                 aux.push(option.metrics.totalCollectsUptime)
             ))
 
             setActives([{ name: list.name, data: aux }])
-            console.log('a lista esta com', aux)
 
             //buscando o nome do ativo
             const aux2 = [];
-            assets.data.map(option =>(
+            filterAssets.map(option =>(
                 aux2.push(option.name)
             ))
 
             setActivesName(aux2)
-            console.log('VAAI', aux2)
 
+        //UNIDADE 2:
+        filterAssets2.map(option => (
+            aux3.push(option.metrics.totalCollectsUptime)
+        ))
         
-            
-        }
+        setActivesTwo([{ name: list2.name, data: aux3 }])
+
+        const aux4 = [];
+            filterAssets2.map(option =>(
+                aux4.push(option.name)
+            ))
+
+            setActivesNameTwo(aux4)
+
+            console.log('DADOS SECUNDARIOS',activesTwo)
+            console.log('NOMES SECUNDARIOS',activesNameTwo)
+        
+    
+    }
 
         Load()
     }, [])
@@ -74,7 +99,7 @@ export function UnitsGraph() {
         },
         
         xAxis: {
-               categories: activesName,
+               categories: activesName, activesNameTwo,
         /*     categories: [
                 'Jan',
                 'Feb',
@@ -111,7 +136,7 @@ export function UnitsGraph() {
                 borderWidth: 0
             }
         },
-        series: actives
+        series: actives, activesTwo
         /* series: [{
             name: units,
             data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]

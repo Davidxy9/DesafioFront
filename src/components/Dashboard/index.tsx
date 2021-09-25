@@ -32,7 +32,7 @@ export function Dashboard() {
             const obj2 = {
                 id: itens[1].id,
                 name: itens[1].name,
-                url: "https://lh3.googleusercontent.com/proxy/oMpnDHm9RTiW8V-olEGmGcqRHg1SSPePIEb_Ase8sahmOzaOF-osrbSMd5gT6msUnrbIaUyLIWnbC8LOhO6kDWeAiqyWQBH2XtmDofA1lbIPhN8KvY-wYxvl0pUhOxxPlke2coWQo6o01wrw"
+                url: "https://lh3.googleusercontent.com/proxy/bzFr0zkmFEYEtLEzfcYzRDuSPtardZhB982TqrgNio9oeJhQq_Zc0RW1LCrLIkDwQkbAhBcR6ZuS93zzWRHWlylyZof_QuSPLmMpACd-6NjzPuGrL1MeXUh0yj0NtQkeQ7a3U4aPUPMekugZ"
             }
 
             setUnits([obj, obj2])

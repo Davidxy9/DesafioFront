@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.header`
     height: 5rem;
     border-bottom: 2px solid #29292e;
-    background: #ffffff;
+    background: #F8F8FF;
 `;
 
 export const Content = styled.div`
