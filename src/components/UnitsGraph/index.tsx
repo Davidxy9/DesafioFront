@@ -2,7 +2,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { useState, useEffect } from 'react';
 import api from '../../services/api';
-import {configUnitsGraph} from '../../utils/configUnitsGraph';
+//import {configUnitsGraph} from '../../utils/configUnitsGraph';
 
 interface UnitsData {
     //id: number;
@@ -21,44 +21,61 @@ interface IDados {
     data: number[]
 }
 
+interface ActivesNameData {
+    name: string[]
+}
+
 export function UnitsGraph() {
     const [units, setUnits] = useState<UnitsData>();
     //state para usar os ativos em array nos graficos
     const [actives, setActives] = useState<IDados[]>([])
+    const[activesName, setActivesName] = useState<ActivesNameData[]>([])
 
     useEffect(() => {
-        
+
         async function Load() {
+            //Buscando unidade e seus collects
             const Unidades = await api.get('https://my-json-server.typicode.com/tractian/fake-api/units/1')
 
-            const dados = await api.get('https://my-json-server.typicode.com/tractian/fake-api/assets')
+            const assets = await api.get('https://my-json-server.typicode.com/tractian/fake-api/assets')
             const list = Unidades.data;
             const aux = [];
             // console.log('List tem ', Unidades.data)
-            dados.data.map(option => (
+            assets.data.map(option => (
                 aux.push(option.metrics.totalCollectsUptime)
             ))
 
             setActives([{ name: list.name, data: aux }])
             console.log('a lista esta com', aux)
+
+            //buscando o nome do ativo
+            const aux2 = [];
+            assets.data.map(option =>(
+                aux2.push(option.name)
+            ))
+
+            setActivesName(aux2)
+            console.log('VAAI', aux2)
+
+        
+            
         }
 
         Load()
     }, [])
- 
+
     console.log(actives)
     const configUnitsGraph = {
         chart: {
             type: 'column'
         },
         title: {
-            text: 'Monthly Average Rainfall'
+            text: 'Ativos da Unidade Jaguar'
         },
-        subtitle: {
-            text: 'Source: WorldClimate.com'
-        },
+        
         xAxis: {
-            categories: [
+               categories: activesName,
+        /*     categories: [
                 'Jan',
                 'Feb',
                 'Mar',
@@ -71,13 +88,13 @@ export function UnitsGraph() {
                 'Oct',
                 'Nov',
                 'Dec'
-            ],
+            ], */
             crosshair: true
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Rainfall (mm)'
+                text: 'Total de Coletas Uptime'
             }
         },
         tooltip: {
@@ -94,7 +111,7 @@ export function UnitsGraph() {
                 borderWidth: 0
             }
         },
-            series: actives
+        series: actives
         /* series: [{
             name: units,
             data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
