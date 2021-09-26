@@ -1,4 +1,4 @@
-import { Container, Content, Title } from './styles';
+import { Content, Title } from './styles';
 import api from '../../services/api';
 import { useState, useEffect } from 'react';
 
@@ -12,7 +12,7 @@ interface UnitsData {
     url: string;
 }
 
-export function Dashboard() {
+export function Unity() {
     const [company, setCompany] = useState({} as CompanyData);
     const [units, setUnits] = useState<UnitsData[]>([]);
     useEffect(() => {
@@ -45,16 +45,7 @@ export function Dashboard() {
 
     return (
         <>
-            <Container>
-                <div>
-                    <img
-                        src="/images/foi.png"
-                        alt="ImageCompany"
-                    />
-                    <h1>Controle industrial e automatização</h1>
-                </div>
 
-            </Container>
             <Title>Nossas unidades</Title>
             <Content >
                 {units.map(unity =>

@@ -33,7 +33,7 @@ export const Title = styled.h2`
     color: black;
     margin-left: 0.3rem;
     margin-right: 0.3rem;
-    margin-top: 7.5rem;
+    margin-top: 20px;
     font-size: 2.2rem;
     color: #333333;
 `;

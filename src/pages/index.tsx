@@ -1,14 +1,21 @@
 import Head from 'next/head';
-import { Dashboard } from '../components/Dashboard';
-import { UnitsGraph } from '../components/UnitsGraph'
+import {Container} from '../styles/global';
 export default function Home() {
   return (
     <>
     <Head>
       <title>Desafio</title>
     </Head>
-     <Dashboard/>
-     <UnitsGraph />
+    <Container>
+                <div>
+                    <img
+                        src="/images/foi.png"
+                        alt="ImageCompany"
+                    />
+                    <h1>Controle industrial e automatização</h1>
+                </div>
+
+            </Container>
      </>
 
   )

@@ -3,11 +3,13 @@ export function Header() {
     return (
         <Container>
             <Content>
-                <img src="/images/miau.png" alt="Soumteste" />
+                <a href="/">
+                    <img src="/images/miau.png" alt="Soumteste" />
+                </a>
                 <nav>
                     <a href="/assets">Ativos</a>
                     <a>Usuários</a>
-                    <a>Unidades</a>
+                    <a href="/units">Unidades</a>
                     <a>Empresas</a>
 
                 </nav>
