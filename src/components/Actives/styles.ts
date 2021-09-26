@@ -121,3 +121,19 @@ export const List = styled.div`
   }
 `;
 
+//GRÁFICO
+
+export const Graph = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 91%;
+  margin: auto 10rem;
+
+  h1 {
+    font-size: 34px;
+    color: rgb(58, 58, 58);
+    line-height: 56px;
+    margin-top: 20px;
+  }
+`;

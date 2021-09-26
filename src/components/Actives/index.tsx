@@ -2,7 +2,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import api from '../../services/api';
 import { useState, useEffect } from 'react';
-import { Container, List } from './styles';
+import { Container, List, Graph } from './styles';
 import { FiChevronRight } from 'react-icons/fi';
 
 
@@ -68,7 +68,7 @@ export function Actives() {
             type: 'pie'
         },
         title: {
-            text: 'Browser market shares in January, 2018'
+            text: 'Status dos ativos e sua % em saúde'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -127,7 +127,6 @@ export function Actives() {
             }]
     }
 
-    console.log('APARECE', allActives)
     return (
         <>
             <Container>
@@ -176,12 +175,19 @@ export function Actives() {
                     </a>
                 ))}
             </List>
-
-            {/*  <HighchartsReact
+            
+            <Graph>
+                <div>
+                    <h1>
+                        Lista de ativos - Gráfico
+                    </h1>
+                </div>
+        
+            </Graph>
+            <HighchartsReact
                 highcharts={Highcharts}
                 options={configActivesGraph}
-            /> */}
-
+            /> 
 
         </>
     );
