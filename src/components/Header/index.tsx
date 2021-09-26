@@ -5,7 +5,7 @@ export function Header() {
             <Content>
                 <img src="/images/miau.png" alt="Soumteste" />
                 <nav>
-                    <a href="/products">Ativos</a>
+                    <a href="/assets">Ativos</a>
                     <a>Usuários</a>
                     <a>Unidades</a>
                     <a>Empresas</a>
