@@ -4,8 +4,8 @@ import api from '../../services/api';
 import { useState, useEffect } from 'react';
 
 interface ActivesData {
-    status: string[];
-    healthscore: number[];
+    status: string;
+    healthscore: number;
 } 
 
 
@@ -17,14 +17,14 @@ export function Actives () {
             const assets = await api.get('https://my-json-server.typicode.com/tractian/fake-api/assets')
             
             const aux = [];
-            const aux2 = [];
 
-            assets.data.map(option => (
-                aux.push(option.status),
-                aux2.push(option.healthscore)
-            ))
+            console.log('recebi do assets', assets)
             
-            setActives([{status: aux, healthscore: aux2}])
+            assets.data.map(option => (
+                aux.push({name: option.status, y: option.healthscore})
+            ));
+
+            setActives(aux);
 
         }
         Load()
@@ -59,39 +59,42 @@ export function Actives () {
                 }
             }
         },
-        series: [{
-            name: 'Brands',
+        series: [
+            {
+            name: 'Healthscore',
             colorByPoint: true,
-            data: [{
-                name: 'Chrome',
-                y: 61.41,
-                sliced: true,
-                selected: true
-            }, {
-                name: 'Internet Explorer',
-                y: 11.84
-            }, {
-                name: 'Firefox',
-                y: 10.85
-            }, {
-                name: 'Edge',
-                y: 4.67
-            }, {
-                name: 'Safari',
-                y: 4.18
-            }, {
-                name: 'Sogou Explorer',
-                y: 1.64
-            }, {
-                name: 'Opera',
-                y: 1.6
-            }, {
-                name: 'QQ',
-                y: 1.2
-            }, {
-                name: 'Other',
-                y: 2.61
-            }]
+             data: actives
+            //[
+            //     {
+            //     name: 'Chrome',
+            //     y: 61.41,
+            //     sliced: true,
+            //     selected: true
+            // }, {
+            //     name: 'Internet Explorer',
+            //     y: 11.84
+            // }, {
+            //     name: 'Firefox',
+            //     y: 10.85
+            // }, {
+            //     name: 'Edge',
+            //     y: 4.67
+            // }, {
+            //     name: 'Safari',
+            //     y: 4.18
+            // }, {
+            //     name: 'Sogou Explorer',
+            //     y: 1.64
+            // }, {
+            //     name: 'Opera',
+            //     y: 1.6
+            // }, {
+            //     name: 'QQ',
+            //     y: 1.2
+            // }, {
+            //     name: 'Other',
+            //     y: 2.61
+            // }]
         }]
     }
 

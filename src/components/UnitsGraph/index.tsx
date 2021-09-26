@@ -56,7 +56,7 @@ export function UnitsGraph() {
                 aux.push(option.metrics.totalCollectsUptime)
             ))
 
-            setActives([{ name: list.name, data: aux }])
+            // setActives([{ name: list.name, data: aux }])
 
             //buscando o nome do ativo
             const aux2 = [];
@@ -64,24 +64,22 @@ export function UnitsGraph() {
                 aux2.push(option.name)
             ))
 
-            setActivesName(aux2)
 
         //UNIDADE 2:
         filterAssets2.map(option => (
             aux3.push(option.metrics.totalCollectsUptime)
         ))
-        
-        setActivesTwo([{ name: list2.name, data: aux3 }])
-
-        const aux4 = [];
+        setActives([{ name: list.name, data: aux },{ name: list2.name, data: aux3 } ])
+        // setActivesTwo([{ name: list2.name, data: aux3 }])
+          const aux4 = [];
             filterAssets2.map(option =>(
                 aux4.push(option.name)
             ))
 
-            setActivesNameTwo(aux4)
+            // setActivesNameTwo(aux4)
+            setActivesName([...aux2, ...aux4]);
 
             console.log('DADOS SECUNDARIOS',activesTwo)
-            console.log('NOMES SECUNDARIOS',activesNameTwo)
         
     
     }
@@ -99,7 +97,7 @@ export function UnitsGraph() {
         },
         
         xAxis: {
-               categories: activesName, activesNameTwo,
+               categories: activesName,
         /*     categories: [
                 'Jan',
                 'Feb',
@@ -136,7 +134,7 @@ export function UnitsGraph() {
                 borderWidth: 0
             }
         },
-        series: actives, activesTwo
+        series: actives
         /* series: [{
             name: units,
             data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
