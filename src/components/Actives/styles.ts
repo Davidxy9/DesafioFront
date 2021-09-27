@@ -48,6 +48,18 @@ export const List = styled.div`
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 
+    @media(max-width: 980px){
+      width: 200%;
+    }
+
+    @media(max-width: 655px){
+      width: 400%;
+    }
+
+    @media(max-width: 475px){
+      width: 900%;
+    }
+
     &:hover {
       transform: translateX(10px);
     }
