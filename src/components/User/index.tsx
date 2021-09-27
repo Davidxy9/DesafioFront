@@ -1,6 +1,6 @@
 import api from '../../services/api';
 import { useState, useEffect } from 'react';
-import { Container } from './styles';
+import { Container, Grid, Content  } from './styles';
 
 interface UsersData {
     id: string;
@@ -22,6 +22,7 @@ export function User() {
     console.log(users)
 
     return (
+        <>
         <Container>
             <div>
                 <h1>
@@ -29,5 +30,25 @@ export function User() {
                 </h1>
             </div>
         </Container>
+
+        <Content>
+        <Grid>
+            {users.map(user => (
+                <div key={user.id}>
+                <img 
+                    src="/images/userImage.jpg"
+                    alt="image-user" 
+                 />
+                 <strong>{user.name}</strong>
+                 <p>Email: {user.email}</p>
+                 <p>NºEmpresa: {user.companyId}</p>
+                 <p>Nºunidade: {user.unitId}</p>
+
+            </div>
+            ))}
+            
+        </Grid> 
+        </Content>
+        </>
     );
 }
