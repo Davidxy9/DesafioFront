@@ -51,6 +51,14 @@ export const Container = styled.main`
         //background: red;
         margin: auto 20rem;
         padding: 0 5rem;
+
+        
+        @media(max-width: 980px){
+                margin: auto 14rem;
+        }
+        @media(max-width: 1215px){
+            margin: auto 10rem;
+        }
         
         img {
             height: 400px;
@@ -58,6 +66,13 @@ export const Container = styled.main`
             margin: 0 5.3rem;
             //display: flex;
             //align-items: center;
+
+            @media(max-width: 980px){
+                height: 200px;
+                width: 200px;
+
+                margin: 0 3rem;
+            }
         }
         h1{
             display: flex;
@@ -66,6 +81,14 @@ export const Container = styled.main`
             font-size: 2.2rem;
             color: #333333;
             margin: auto -8rem;
+
+            @media(max-width: 670px){
+                margin-left: 5rem;
+            }
+
+            @media(max-width: 485px){
+                margin-left: 10rem;
+            }
 
         }
     }

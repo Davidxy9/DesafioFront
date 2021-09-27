@@ -1,5 +1,15 @@
 import styled, {keyframes} from 'styled-components';
 
+const appearFromLeft = keyframes`
+  from{
+    opacity: 0;
+    transform: translateX(-50px);
+  }to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -12,21 +22,15 @@ export const Container = styled.div`
     color: rgb(58, 58, 58);
     line-height: 56px;
     margin-top: 20px;
+
+   animation: ${appearFromLeft} 2s;
+
   }
 `;
 
-const appearFromLeft = keyframes`
-  from{
-    opacity: 0;
-    transform: translateX(-50px);
-  }to{
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
 
 export const List = styled.div`
-   animation: ${appearFromLeft} 2s;
+   animation: ${appearFromLeft} 1s;
    margin-top: 10px;
    max-width: 700px;
    margin: auto 10rem;
@@ -47,6 +51,8 @@ export const List = styled.div`
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+
+   animation: ${appearFromLeft} 1s;
 
     @media(max-width: 980px){
       width: 200%;
