@@ -17,7 +17,7 @@ export function Company() {
     }, [])
     return (
         <>
-        <Title>Conheça nossas Terceirizadas:</Title>
+        <Title>Conheça nossas Empresas:</Title>
             <Content >
                 {company.map(comp =>
                     <a href={`https://my-json-server.typicode.com/tractian/fake-api/companies/${comp.id}`}>
