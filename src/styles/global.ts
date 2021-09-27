@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import {createGlobalStyle, keyframes} from 'styled-components';
 import styled from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
@@ -45,6 +45,16 @@ export const GlobalStyle = createGlobalStyle`
  
 `;
 
+const appearFromTop = keyframes`
+  from{
+    opacity: 0;
+    transform: translateY(50px);
+  }to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 export const Container = styled.main`
     //background: yellow;
     div{
@@ -66,6 +76,8 @@ export const Container = styled.main`
             margin: 0 5.3rem;
             //display: flex;
             //align-items: center;
+            animation: ${appearFromTop} 1s;
+
 
             @media(max-width: 980px){
                 height: 200px;
@@ -81,6 +93,8 @@ export const Container = styled.main`
             font-size: 2.2rem;
             color: #333333;
             margin: auto -8rem;
+            animation: ${appearFromTop} 1s;
+
 
             @media(max-width: 670px){
                 margin-left: 5rem;
