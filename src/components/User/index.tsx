@@ -4,6 +4,7 @@ import { Container } from './styles';
 
 interface UsersData {
     id: string;
+    name: string;
     email: string;
     unitId: string;
     companyId: string;
