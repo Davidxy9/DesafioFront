@@ -45,7 +45,7 @@ Esse projeto foi desenvolvido com a seguinte tecnologia:
 
 Olá!
 
-Bem-vindo a Vought! Aqui você você possui o que é necessário para manter a sua gestão!
+Bem-vindo a Vought! Aqui você possui o que é necessário para manter a sua gestão!
 
 Navegue entre nossos gráficos e planeje seus passos!
 
