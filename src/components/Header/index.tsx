@@ -10,7 +10,7 @@ export function Header() {
                     <a href="/assets">Ativos</a>
                     <a href="/users">Usuários</a>
                     <a href="/units">Unidades</a>
-                    <a>Empresas</a>
+                    <a href="/companies">Empresas</a>
 
                 </nav>
 
