@@ -8,7 +8,7 @@ export function Header() {
                 </a>
                 <nav>
                     <a href="/assets">Ativos</a>
-                    <a>Usuários</a>
+                    <a href="/users">Usuários</a>
                     <a href="/units">Unidades</a>
                     <a>Empresas</a>
 
