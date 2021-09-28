@@ -6,7 +6,7 @@ import NextProgress from "next-nprogress";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-    <NextProgress delay={300} options={{ showSpinner: false }} />
+    <NextProgress delay={400} options={{ showSpinner: false }} />
     <GlobalStyle />
     <Header />
     <Component {...pageProps} />
