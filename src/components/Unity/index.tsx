@@ -1,7 +1,7 @@
 import { Content, Title } from './styles';
 import api from '../../services/api';
 import { useState, useEffect } from 'react';
-
+import { Loading } from '../Loading';
 
 
 interface UnitsData {
@@ -12,6 +12,8 @@ interface UnitsData {
 
 export function Unity() {
     const [units, setUnits] = useState<UnitsData[]>([]);
+    const [isLoad, setIsLoad] = useState(true);
+
     useEffect(() => {
         async function Load() {
            
@@ -33,6 +35,8 @@ export function Unity() {
 
             setUnits([obj, obj2])
         }
+               //Loading
+               setIsLoad(false);
 
         Load()
 

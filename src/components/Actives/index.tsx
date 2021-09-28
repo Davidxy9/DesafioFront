@@ -4,6 +4,8 @@ import api from '../../services/api';
 import { useState, useEffect } from 'react';
 import { Container, List, Graph } from './styles';
 import { FiChevronRight } from 'react-icons/fi';
+import { Loading } from '../Loading';
+
 
 
 interface ActivesData {
@@ -35,6 +37,8 @@ interface AllActivesData {
 export function Actives() {
     const [actives, setActives] = useState<ActivesData[]>([])
     const [allActives, setAllActives] = useState<AllActivesData[]>([])
+    const [isLoad, setIsLoad] = useState(true);
+
 
     useEffect(() => {
         async function Load() {
@@ -55,6 +59,10 @@ export function Actives() {
             //PEGANDO TODOS OS ATIVOS E EXIBINDO-OS EM UMA LIST
             //ainda haverá alterações com o campo de busca, rlx david
             setAllActives(aux2)
+
+            //Loading
+            setIsLoad(false);
+
         }
         Load()
 
@@ -129,65 +137,70 @@ export function Actives() {
 
     return (
         <>
-            <Container>
-                <div>
-                    <h1>
-                        Lista de ativos - Características
-                    </h1>
-                </div>
-            </Container>
-            <List>
-                {allActives.map(active => (
-                    <a
-                        key={active.name}
-                        href={`https://my-json-server.typicode.com/tractian/fake-api/assets/${active.id}`}>
-
-                        <img
-                            src={active.image}
-                            alt={active.name}
-                        />
-
+            {isLoad ? <Loading /> :
+                <>
+                    <Container>
                         <div>
-                            <strong>Nome: {active.name}</strong>
-                            <p>Saúde: {active.healthscore}</p>
-                            <p>Modelo: {active.model}</p>
-                            <p>Estado atual: {active.status}</p>
-                            <p>Total de Coletas: {active.metrics.totalCollectsUptime}</p>
-                            <p>Total de Horas de Coletas: {active.metrics.totalUptime}</p>
-                            <p>Data da Ultima Coleta: {active.metrics.lastUptimeAt}</p>
-                            <p>RPM: {active.specifications.rpm}</p>
+                            <h1>
+                                Lista de ativos - Características
+                            </h1>
+                        </div>
+                    </Container>
+                    <List>
+                        {allActives.map(active => (
+                            <a
+                                key={active.name}
+                                href={`https://my-json-server.typicode.com/tractian/fake-api/assets/${active.id}`}>
+
+                                <img
+                                    src={active.image}
+                                    alt={active.name}
+                                />
+
+                                <div>
+                                    <strong>Nome: {active.name}</strong>
+                                    <p>Saúde: {active.healthscore}</p>
+                                    <p>Modelo: {active.model}</p>
+                                    <p>Estado atual: {active.status}</p>
+                                    <p>Total de Coletas: {active.metrics.totalCollectsUptime}</p>
+                                    <p>Total de Horas de Coletas: {active.metrics.totalUptime}</p>
+                                    <p>Data da Ultima Coleta: {active.metrics.lastUptimeAt}</p>
+                                    <p>RPM: {active.specifications.rpm}</p>
 
 
+                                </div>
+
+                                <ul>
+                                    <li>
+                                        <strong>{active.specifications.power} - </strong>
+                                        <span>Potência em kWh</span>
+                                    </li>
+                                    <li>
+                                        <strong>{active.specifications.maxTemp} - </strong>
+                                        <span>Temperatura Máxima(Cº)</span>
+                                    </li>
+                                </ul>
+                                <FiChevronRight size={20} />
+
+                            </a>
+                        ))}
+                    </List>
+
+                    <Graph>
+                        <div>
+                            <h1>
+                                Lista de ativos - Gráfico
+                            </h1>
                         </div>
 
-                        <ul>
-                            <li>
-                                <strong>{active.specifications.power} - </strong>
-                                <span>Potência em kWh</span>
-                            </li>
-                            <li>
-                                <strong>{active.specifications.maxTemp} - </strong>
-                                <span>Temperatura Máxima(Cº)</span>
-                            </li>
-                        </ul>
-                        <FiChevronRight size={20} />
+                    </Graph>
+                    <HighchartsReact
+                        highcharts={Highcharts}
+                        options={configActivesGraph}
+                    />
+                </>
+            }
 
-                    </a>
-                ))}
-            </List>
-            
-            <Graph>
-                <div>
-                    <h1>
-                        Lista de ativos - Gráfico
-                    </h1>
-                </div>
-        
-            </Graph>
-            <HighchartsReact
-                highcharts={Highcharts}
-                options={configActivesGraph}
-            /> 
 
         </>
     );
