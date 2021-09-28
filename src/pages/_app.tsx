@@ -3,7 +3,6 @@ import { Header } from '../components/Header';
 import { GlobalStyle } from '../styles/global';
 import NextProgress from "next-nprogress";
 
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
