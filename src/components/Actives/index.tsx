@@ -5,8 +5,6 @@ import { useState, useEffect } from 'react';
 import { Container, List, Graph } from './styles';
 import { FiChevronRight } from 'react-icons/fi';
 import { Loading } from '../Loading';
-import { Header } from '../Header';
-
 
 
 
@@ -139,11 +137,8 @@ export function Actives() {
 
     return (
         <>
-        
             {isLoad ? <Loading /> :
                 <>
-                <Header />
-
                     <Container>
                         <div>
                             <h1>
