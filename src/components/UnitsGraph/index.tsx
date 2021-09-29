@@ -25,13 +25,10 @@ interface ActivesNameData {
 }
 
 export function UnitsGraph() {
-    const [units, setUnits] = useState<UnitsData>();
     //state para usar os ativos em array nos graficos
     const [actives, setActives] = useState<IDados[]>([])
-    const [activesTwo, setActivesTwo] = useState<IDados[]>([])
 
     const[activesName, setActivesName] = useState<ActivesNameData[]>([])
-    const[activesNameTwo, setActivesNameTwo] = useState<ActivesNameData[]>([])
 
 
     useEffect(() => {
