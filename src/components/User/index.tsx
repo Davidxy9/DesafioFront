@@ -15,7 +15,7 @@ interface UsersData {
 export function User() {
     const [users, setUsers] = useState<UsersData[]>([])
     const [userSearch, setUserSearch] = useState('');
-    const [isLoad, setIsLoad] = useState(true);
+    const [isLoad, setIsLoad] = useState(false);
 
 
     useEffect(() => {

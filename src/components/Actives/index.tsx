@@ -37,7 +37,7 @@ interface AllActivesData {
 export function Actives() {
     const [actives, setActives] = useState<ActivesData[]>([])
     const [allActives, setAllActives] = useState<AllActivesData[]>([])
-    const [isLoad, setIsLoad] = useState(true);
+    const [isLoad, setIsLoad] = useState(false);
 
 
     useEffect(() => {
