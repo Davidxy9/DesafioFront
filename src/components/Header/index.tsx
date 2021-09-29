@@ -4,7 +4,7 @@ export function Header() {
         <Container>
             <Content>
                 <a href="/">
-                    {/* <img src="/images/miau.png" alt="Soumteste" /> */}
+                    <img src="/images/miau.png" alt="Soumteste" />
                 </a>
                 <nav>
                     <a href="/assets">Ativos</a>
