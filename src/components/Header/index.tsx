@@ -3,9 +3,11 @@ export function Header() {
     return (
         <Container>
             <Content>
+                <nav>
                 <a href="/">
-                    <img src="/images/miau.png" alt="Soumteste" />
+                    <img src="/images/headerIcon.png" alt="headerIcon" />
                 </a>
+                </nav>
                 <nav>
                     <a href="/assets">Ativos</a>
                     <a href="/users">Usuários</a>

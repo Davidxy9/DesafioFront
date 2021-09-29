@@ -1,7 +1,7 @@
 import { Content, Title } from './styles';
 import api from '../../services/api';
 import { useState, useEffect } from 'react';
-import { Loading } from '../Loading';
+
 
 
 interface UnitsData {
@@ -12,11 +12,9 @@ interface UnitsData {
 
 export function Unity() {
     const [units, setUnits] = useState<UnitsData[]>([]);
-    const [isLoad, setIsLoad] = useState(true);
-
     useEffect(() => {
         async function Load() {
-
+           
 
             const response = await api.get(`https://my-json-server.typicode.com/tractian/fake-api/units`)
             const itens = response.data;
@@ -35,8 +33,6 @@ export function Unity() {
 
             setUnits([obj, obj2])
         }
-        //Loading
-        setIsLoad(false);
 
         Load()
 
@@ -45,23 +41,19 @@ export function Unity() {
 
     return (
         <>
-            {isLoad ? <Loading /> :
-                <>
-                    <Title>Nossas unidades</Title>
-                    <Content >
-                        {units.map(unity =>
 
-                            <div key={unity.id}>
-                                <img src={unity.url} alt="imageUnity" />
-                                <strong>{unity.name}</strong>
-                            </div>
+            <Title>Nossas unidades</Title>
+            <Content >
+                {units.map(unity =>
 
+                    <div key={unity.id}>
+                        <img src={unity.url} alt="imageUnity" />
+                        <strong>{unity.name}</strong>
+                    </div>
+         
 
-                        )}
-                    </Content>
-                </>
-            }
-
+                )}
+            </Content>
 
         </>
     );

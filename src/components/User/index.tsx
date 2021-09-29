@@ -1,7 +1,6 @@
 import api from '../../services/api';
 import { useState, useEffect } from 'react';
 import { Container, Grid, Content, Form } from './styles';
-import {Loading} from '../Loading';
 
 interface UsersData {
     id: string;
@@ -15,14 +14,11 @@ interface UsersData {
 export function User() {
     const [users, setUsers] = useState<UsersData[]>([])
     const [userSearch, setUserSearch] = useState('');
-    const [isLoad, setIsLoad] = useState(true);
 
 
     useEffect(() => {
         api.get('https://my-json-server.typicode.com/tractian/fake-api/users')
             .then(response => setUsers(response.data))
-            
-        setIsLoad(false);
     }, [])
 
     const filterUsers = users.filter((user) => user.name.toLowerCase().includes(userSearch))
@@ -30,8 +26,7 @@ export function User() {
 
     return (
         <>
-            {isLoad ? <Loading /> :
-            <>
+
             <Container>
                 <div>
                     <h1>
@@ -65,9 +60,6 @@ export function User() {
 
                 </Grid>
             </Content>
-            </>
-            }
-            
         </>
     );
 }

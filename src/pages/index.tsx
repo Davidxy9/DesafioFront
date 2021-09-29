@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import {Container} from '../styles/stylesForIndex';
+import {Container} from '../styles/global';
 export default function Home() {
   return (
     <>
