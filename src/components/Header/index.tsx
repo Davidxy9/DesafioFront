@@ -5,7 +5,7 @@ export function Header() {
         <Container>
             <Content>
                 <nav>
-                    <Link href="/">
+                    <Link href="/" prefetch>
                         <a >
                             <img src="/images/headerIcon.png" alt="headerIcon" />
                         </a>
