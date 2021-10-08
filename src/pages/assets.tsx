@@ -6,7 +6,7 @@ export default function Assets(){
     return (
         <>
             <Head>
-                <title>Desafio | Ativos</title>
+                <title>Vought | Ativos</title>
             </Head>
             <Actives />
         </>

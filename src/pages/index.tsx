@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
     <Head>
-      <title>Desafio</title>
+      <title>Vought</title>
     </Head>
     <Container>
                 <div>

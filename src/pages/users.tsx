@@ -5,7 +5,7 @@ export default function Users(){
     return (
         <>
             <Head>
-                <title>Desafio | Users</title>
+                <title>Vought | Users</title>
             </Head>
             <User />
         </>

@@ -1,18 +1,34 @@
+import Link from 'next/link';
 import { Container, Content } from './styles'
 export function Header() {
     return (
         <Container>
             <Content>
                 <nav>
-                <a href="/">
-                    <img src="/images/headerIcon.png" alt="headerIcon" />
-                </a>
+                    <Link href="/">
+                        <a >
+                            <img src="/images/headerIcon.png" alt="headerIcon" />
+                        </a>
+                    </Link>
                 </nav>
                 <nav>
-                    <a href="/assets">Ativos</a>
-                    <a href="/users">Usuários</a>
-                    <a href="/units">Unidades</a>
-                    <a href="/companies">Empresas</a>
+                    <Link href="/assets">
+                        <a>Ativos</a>
+
+                    </Link>
+
+                    <Link href="/users">
+                        <a>Usuários</a>
+
+                    </Link>
+                    <Link href="/units">
+                        <a >Unidades</a>
+
+                    </Link>
+                    <Link href="/companies">
+                        <a>Empresas</a>
+
+                    </Link>
 
                 </nav>
 

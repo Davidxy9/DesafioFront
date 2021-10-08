@@ -7,7 +7,7 @@ export default function Units() {
     return (
         <>
             <Head>
-                <title>Desafio | Units</title>
+                <title>Vought | Units</title>
             </Head>
             <Unity/>
             <UnitsGraph />

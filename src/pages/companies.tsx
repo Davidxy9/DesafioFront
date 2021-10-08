@@ -5,7 +5,7 @@ export default function Companies() {
     return (
         <>
             <Head>
-                <title>Desafio | Company</title>
+                <title>Vought | Company</title>
             </Head>
 
             <Company />
